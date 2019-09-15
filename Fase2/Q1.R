@@ -93,14 +93,31 @@ shortestPath2 <- get.shortest.paths(graph, from=V(graph)[name==698], to=V(graph)
                                     weights=E(graph)$X22, mode='all')$vpath
 
 # Terceira parte do caminho (aqui repete :X o 17)
+# Solução: Fiz uma classificação manual desta última parte no excel
 shortestPath3 <- get.shortest.paths(graph, from=V(graph)[name==697], to=V(graph)[name==699],
                                     mode='all')$vpath
 
-get.shortest.paths(graph, from=V(graph)[name==697], to=V(graph)[name==699], mode='all')
+# Caminhos possíveis
+# 697	5	112	164	699 (Custo 143)
+# 697	5	111	311	699 (Custo 233)
+# 697	5	6	400	699 (Custo 129)
+
+# 697	7	104	164	699 (Custo 126)
+# 697	7	14	311	699 (Custo 170)
+# 697	7	18	400	699 (Custo 177)
+
+# 697	20	59	3	699 (Custo 224)
+
+# 697	85	311	699	(Custo 186)
+
+# Fiz uma classificação manual desta última parte no excel
+get.shortest.paths(graph, from=V(graph)[name==5], to=V(graph)[name==699], mode='all')
 
 print(shortestPath)
 print(shortestPath2)
 print(shortestPath3)
 
+plot(graph)
+
 # Resposta
-# 699 3 617 698 269 8 17 697 17 699
+# 699 3 617 698 269 8 17 697 7 104 164 699
